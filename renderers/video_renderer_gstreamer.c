@@ -62,8 +62,8 @@ video_renderer_t *video_renderer_init(logger_t *logger, background_mode_t backgr
     
     assert(check_plugins ());
 
-    renderer->pipeline = gst_parse_launch("appsrc name=video_source stream-type=0 format=GST_FORMAT_TIME is-live=true !"
-    "queue ! decodebin ! videoconvert ! autovideosink name=video_sink sync=false", &error);
+    renderer->pipeline = gst_parse_launch("appsrc name=video_source stream-type=0 format=GST_FORMAT_TIME is-live=true !"                                                                                                                   
+      "queue ! decodebin ! videoconvert ! ximagesink name=video_sink sync=false", &error);
     g_assert (renderer->pipeline);
 
 
